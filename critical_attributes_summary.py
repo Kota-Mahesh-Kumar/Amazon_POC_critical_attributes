@@ -115,13 +115,13 @@ def highlight_cells(value):
 combined_dataframe = pd.DataFrame(dataframes_by_critical_attribute)
 combined_dataframe['Variable'] = Final_column_list
 columns_order = ['Variable', "Length", "Breadth", "Height" ,"Radius", "Item Weight", "Item Volume /Capacity", "Net Quantity","Material","Colour"]
+columns_to_check = ["Length", "Breadth", "Height" ,"Radius", "Item Weight", "Item Volume /Capacity", "Net Quantity","Material","Colour"]
+
 combined_dataframe = combined_dataframe[columns_order]
-styled_df = combined_dataframe.style.applymap(highlight_cells)
+mask = combined_dataframe[columns_to_check].duplicated(keep=False)
+styled_df = combined_dataframe.style.apply(lambda x: ['color: red' if any(mask) else 'color: green'] * len(x), axis=1, subset=columns_to_check)
 
 st.dataframe(styled_df, use_container_width = True)
-    # st.dataframe(dataframe_for_attributes_asin_changed.style.applymap(lambda x: 'color: red' if any('cm' in words for words in x.split()) else ''))
-
-
 
 
 
