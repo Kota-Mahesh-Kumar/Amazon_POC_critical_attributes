@@ -145,7 +145,7 @@ def custom_style_series(column):
         cleaned_values = column.dropna().apply(ignore_spaces_hyphens)
         # if '-' in cleaned_values:
         #     cleaned_values.drop('-')
-        if cleaned_values.nunique() > 1:
+        if cleaned_values.nunique() > 2:
             return ['color: red'] * len(column)
         else:
             return ['color: green'] * len(column)
