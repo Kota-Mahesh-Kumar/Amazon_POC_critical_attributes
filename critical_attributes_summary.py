@@ -110,7 +110,7 @@ combined_dataframe = combined_dataframe[columns_order]
     # st.dataframe(dataframe_for_attributes_asin_changed.style.applymap(lambda x: 'color: red' if any('cm' in words for words in x.split()) else ''))
 
 text_columns = ["Material","Colour"]
-numeric_columns = ["Length", "Breadth", "Height" ,"Radius", "Item Weight", "Item Volume /Capacity", "Net Quantity"]
+numeric_columns = ["Length", "Breadth", "Height" ,"Width", "Depth","Radius", "Item Weight", "Item Volume /Capacity", "Net Quantity"]
 
 # custom_lambda = lambda x: 'red' if isinstance(x, (int, float)) and combined_dataframe[x.name].nunique() > 1 else 'green'
 # custom_lambda = lambda x: 'red' if isinstance(x, (int, float)) and combined_dataframe[x.name].nunique() > 1 else 'green'
@@ -150,7 +150,7 @@ def custom_style_series(column):
         else:
             return ['color: green'] * len(column)
 
-styled_df = combined_dataframe.style.apply(custom_style_series, subset = ["Length", "Breadth", "Height" ,"Radius", "Item Weight", "Item Volume /Capacity", "Net Quantity","Material","Colour"])
+styled_df = combined_dataframe.style.apply(custom_style_series, subset = ["Length", "Breadth", "Height" ,"Width", "Depth","Radius", "Item Weight", "Item Volume /Capacity", "Net Quantity","Material","Colour"])
 
 # Display the styled DataFrame
 st.dataframe(styled_df, use_container_width = True)
