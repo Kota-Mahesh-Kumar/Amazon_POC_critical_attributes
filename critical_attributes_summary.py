@@ -128,7 +128,7 @@ def custom_style_series(column):
         def extract_numeric(value):
             if isinstance(value, str):
                 numeric_values = re.findall(r'\d+', value)
-                return int(numeric_values[0]) if numeric_values else None
+                return float(numeric_values[0]) if numeric_values else None
             return None
 
         numeric_values = column.dropna().apply(extract_numeric)
