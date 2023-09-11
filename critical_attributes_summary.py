@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 
 # Read the data
-excel_path =r"Amazon_Dimension_analysis_Dashboard_v1.xlsx"
+excel_path =r"Amazon_Dimension_Analysis_v6 (1).xlsx"
 
 
 st.set_page_config(layout="wide")
