@@ -150,6 +150,8 @@ def custom_style_series(column):
         else:
             return ['color: green'] * len(column)
 
+combined_dataframe.fillna('', inplace = True)
+combined_dataframe.replace(['-'], [''], inplace = True)
 styled_df = combined_dataframe.style.apply(custom_style_series, subset = ["Length", "Breadth", "Height" ,"Width", "Depth","Radius", "Item Weight", "Item Volume /Capacity", "Net Quantity","Material","Colour"])
 
 # Display the styled DataFrame
