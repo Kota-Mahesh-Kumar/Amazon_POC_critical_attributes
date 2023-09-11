@@ -18,7 +18,7 @@ st.set_page_config(layout="wide")
 
 st.markdown(
     """
-    <h1 style="text-align:center;">Critical Attributes Analysis</h1>
+    <h1 style="text-align:center;">Attributes Data Summary</h1>
     """,
     unsafe_allow_html=True
 )
